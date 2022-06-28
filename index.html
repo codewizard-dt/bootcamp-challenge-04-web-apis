@@ -11,8 +11,38 @@
     <title>Javascript Quiz</title>
   </head>
   <body>
-    <head></head>
-    <main></main>
+    <head>
+      <h1>Javascript Quiz!</h1>
+    </head>
+    <main class="content">
+      <div id="PlayPrompt">
+        <h2>Do you want to play?</h2>
+        <button id="StartBtn">Yes</button>
+      </div>
+      <form id="QuestionForm" method="POST">
+        <div class="question">
+          <div class="card">
+            <div class="text"></div>
+            <pre class="code"><code class="snippet"></code></pre>
+            <ul class="choices">
+              <li>
+                <label></label>
+                <span></span>
+              </li>
+            </ul>
+            <div class="answer">
+              <h3>Correct Answer</h3>
+              <div class="content"></div>
+            </div>
+            <div class="buttons">
+              <button class="submit">submit</button>
+              <button type="button" class="skip">skip</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </main>
     <footer></footer>
+    <script src="./assets/index.js"></script>
   </body>
 </html>

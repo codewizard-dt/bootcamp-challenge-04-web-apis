@@ -19,6 +19,7 @@ body {
 }
 
 main {
+  max-width: 100%;
   flex: 1;
   align-self: center;
   display: flex;
