@@ -11,33 +11,67 @@
     <title>Javascript Quiz</title>
   </head>
   <body>
-    <head>
+    <header>
       <h1>Javascript Quiz!</h1>
-    </head>
+    </header>
     <main class="content">
+      <div id="scoreboard">
+        <div class="highscores">Scoreboard</div>
+        <div class="tracker">
+          <div class="label correctGuesses">Correct<span>0</span></div>
+          <div class="label incorrectGuesses">Incorrect<span>0</span></div>
+          <div class="label skips">Skipped<span>0</span></div>
+        </div>
+        <div class="label timer">Time Remaining<span>0</span></div>
+        <div class="label points">Points<span>0</span></div>
+      </div>
+      <div id="HighScores">
+        <h2>High Scores</h2>
+        <ul class="scores"></ul>
+      </div>
       <div id="PlayPrompt">
         <h2>Do you want to play?</h2>
-        <button id="StartBtn">Yes</button>
+        <section>
+          <h3>Rules</h3>
+          <ul class="rules">
+            <li>2 minute timer, answer as many as you can!</li>
+            <li><b>15 pts</b> for correct guess</li>
+            <li><b>-5 pts</b> and <b>-5 seconds</b> for incorrect guess</li>
+            <li><b>-5 pts</b> to skip a question</li>
+          </ul>
+          <h3>Tips</h3>
+          <ul class="tips">
+            <li>
+              It's worth the points to power through and find the correct
+              answer, even if it takes you several tries
+            </li>
+            <li>
+              If you guess wrong, you'll get additional info to help you work
+              through the question.
+            </li>
+          </ul>
+        </section>
+        <button id="StartBtn">Let's Play!</button>
       </div>
-      <form id="QuestionForm" method="POST">
+      <form id="Game" method="POST">
         <div class="question">
           <div class="card">
+            <div class="success">Correct!</div>
             <div class="text"></div>
-            <pre class="code"><code class="snippet"></code></pre>
+            <pre class="snippet"></pre>
             <ul class="choices">
               <li>
                 <label></label>
                 <span></span>
               </li>
             </ul>
-            <div class="answer">
-              <h3>Correct Answer</h3>
-              <div class="content"></div>
-            </div>
             <div class="buttons">
-              <button class="submit">submit</button>
               <button type="button" class="skip">skip</button>
             </div>
+          </div>
+          <div class="answer">
+            <h3></h3>
+            <div class="content"></div>
           </div>
         </div>
       </form>

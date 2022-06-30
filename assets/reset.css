@@ -19,12 +19,13 @@ body {
 }
 
 main {
-  max-width: 100%;
+  width: max-content;
+  max-width: 95%;
   flex: 1;
   align-self: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 h1,

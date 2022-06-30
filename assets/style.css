@@ -1,5 +1,6 @@
 :root {
   --gray: rgb(88, 96, 96);
+  --light-gray: rgb(126, 137, 137);
   --dark-gray: rgb(72, 78, 78);
   --blue: rgb(98, 223, 206);
   --blue-dark: rgb(73, 189, 174);
@@ -7,6 +8,15 @@
   --blue-hov: rgb(110, 249, 230);
   --pink: rgb(232, 102, 236);
   --pink06: rgba(232, 102, 236, 0.6)
+}
+h1 { font-size: 3em;}
+h2 { font-size: 2em;}
+h3 { font-size: 1.75em;}
+h4 { font-size: 1.5em;}
+h5 { font-size: 1.25em;} 
+header h1 {text-align: center;}
+h1,h2,h3,h4,h5 {
+  margin: 0.5rem 0 1rem
 }
 body {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -17,57 +27,148 @@ body {
 .hidden {
   display: none !important;
 }
-#QuestionForm{
-  display: none;
-  /* width: max-content; */
-  max-width: 95%;
-  /* min-width: 500px;
-  max-width: 95%; */
+#scoreboard {
+  width: 95vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tracker {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+.label {
+  position: relative;
+  border-radius: 3px;
+  background-color: var(--light-gray);
+  padding: 4px 8px;
+}
+.label + .label {
+  margin-left: 4px;
+}
+.label span {
+  position: relative;
+  display: inline;
+  padding: 3px 8px;
+  border-radius: 0 3px 3px 0;
+  background-color: var(--gray);
+  left: 8px;
+}
+
+.label.points .update {
+  position: absolute;
+  padding: 4px;
+  border-radius: 3px;
+  bottom: -10px;
+  right: 0;
+  font-size: 3em;
+  transform: translateY(100%);
+  color: white;
+  transition: 400ms;
+}
+.update.fade {
+  opacity: 0;
+}
+.update.positive {
+  background-color: green;
+  box-shadow: 0 0 8px white;
+}
+.update.negative {
+  background-color: red;
+  box-shadow: 0 0 8px white;
+}
+
+#StartBtn {
+  display: block;
   margin: auto;
 }
+#PlayPrompt {
+  font-size: 1.2em;
+  max-width: min(650px, 95%);
+  margin: auto;
+}
+#PlayPrompt section {
+  margin-bottom: 4em;
+}
+#Game{
+  display: none;
+  width: max-content;
+  max-width: 95%;
+  max-width: 95%;
+  margin: 1rem auto;
+}
 .question {
-  padding: 2rem;
-  border: 2px solid white;
-  border-radius: 5px;
   font-size: 20px;
   display: flex;
   flex-direction: column;
+  width: max-content;
+  max-width: 100%;
 }
 .question > * {
   max-width: 100%;
+}
+.question .card {
+  padding: 2rem;
+  border: 2px solid white;
+  border-radius: 5px;
+  align-self: center;
 }
 .question .text {
   padding: 1rem 0;
   font-size: 1.1em;
 }
+.question .success {
+  position: absolute;
+  background-color: green;
+  color: white;
+  width: calc(100% + 4rem);
+  top: -2rem;
+  /* opacity: 0; */
+  transition: 400ms
+}
 
-pre.code {
+pre.snippet {
+  position: relative;
   font-family: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
     'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
-  /* width: max-content;
-  max-width: 100%; */
-  /* white-space: pre-wrap; */
+  white-space: pre-wrap;
+  min-width: 100%;
+  width: max-content;
+  max-width: calc(100% + 2rem);
   border-radius: 3px;
   padding: 0.5rem;
   background-image: linear-gradient(rgba(29, 182, 220, 0.3) 0%,
       rgba(232, 102, 236, 0.6) 100%);
   user-select: all;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   line-height: 1.2;
-}
-.snippet {
-  width: max-content;
-  max-width: 100%;
-  white-space: pre-wrap;
+  left: 50%;
+  transform: translateX(-50%)
 }
 
-.choices {
+section h3 {
+  width: max-content;
+  border-bottom: 2px solid white;
+}
+
+.choices, .rules {
   padding: 0.5rem 0;
 }
-.choices li, .answer .content {
+.rules {
+  margin-left: 1rem;
+  list-style: disc;
+  list-style-position: inside;
+  margin-block-start: 1rem;
+}
+.rules li + li {
+  margin-top: 5px;
+}
+.tips li {
+  padding: 0.5rem 0
+}
+.choices li {
   display: flex;
+  box-sizing: border-box;
   align-items: center;
   padding: 0.5rem 1rem;
   border-radius: 5px;
@@ -75,12 +176,20 @@ pre.code {
   transition: 400ms;
 }
 .answer {
+  text-align: left;
+  margin: 0.5rem 0;
+  padding: 1rem 1.5rem;
   border: 1px dashed white;
   line-height: 1.2;
 }
-.answer .content {
-  align-items: flex-start;
+.answer h3{
+  width: max-content;
+  border-bottom: 1px solid white;
+  margin-bottom: 0.5rem;
 }
+/* .answer .content {
+  align-items: flex-start;
+} */
 .answer img {
   display: block;
   margin: 5px auto;
@@ -106,7 +215,8 @@ pre.code {
   min-width: 2rem;
   text-align: right;
 }
-.backtick  {
+code.backtick  {
+  padding: 2px 5px;
   font-family: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
       'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
   display: inline-block;
@@ -119,6 +229,7 @@ pre.code {
 }
 .choices li span {
   padding: 3px;
+  width: max-content;
   flex: 1;
 }
 .choices li span > * {
@@ -136,4 +247,8 @@ button {
   border-width: 0px;
   transition: 400ms;
   margin: 0 0.5rem;
+  transition: 400ms;
+}
+button:hover {
+  box-shadow: inset 0px 0px 8px var(--blue-dark), 0 0 8px var(--blue-dark);
 }
