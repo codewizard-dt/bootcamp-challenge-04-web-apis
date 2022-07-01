@@ -32,4 +32,10 @@ If the user is in the top 10 high scores, they are prompted for their name
 - After user adds their name, their score is highlighted
 - Presents a button to replay the game again
 
+## Styling
+- Code display from previous class activity
+- Font selection from FontJoy
+
 # Demo
+[github.io deployment](https://codewizard-dt.github.io/bootcamp-challenge-04-web-apis/)
+![demo](./screenshots/convertio.gif)
