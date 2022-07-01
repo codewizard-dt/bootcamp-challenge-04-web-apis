@@ -44,7 +44,7 @@ function addHighScore(ev) {
   const score = Game.points()
   HighScores.push({ name, score })
   HighScores.sort((a, b) => b.score - a.score)
-
+  HighScores = HighScores.slice(0, 10)
   localStorage.setItem('HighScores', JSON.stringify(HighScores))
   HighScoresEl.querySelector('form').style.display = 'none'
   renderHighScores({ name, score })
@@ -91,8 +91,9 @@ const Game = {
   skip: () => { Game.count.skip++; showPointsUpdate(-5) },
   reset: () => {
     trivia = [...trivia, ...asked]
-    count = { correct: 0, incorrect: 0, skip: 0 }
+    Game.count = { correct: 0, incorrect: 0, skip: 0 }
     Timer.secondsRemaining = 60 * 2
+    updateCounts()
   }
 }
 

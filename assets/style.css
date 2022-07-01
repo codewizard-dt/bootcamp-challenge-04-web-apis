@@ -9,12 +9,15 @@
   --pink: rgb(232, 102, 236);
   --pink06: rgba(232, 102, 236, 0.6)
 }
+/* General Typography */
 h1 { font-size: 3em;}
 h2 { font-size: 2em;}
 h3 { font-size: 1.75em;}
 h4 { font-size: 1.5em;}
 h5 { font-size: 1.25em;} 
 header h1 {text-align: center;}
+
+/* Custom Font Families */
 h1,h2,h3,h4,h5 {
   font-family: 'Gentium Book Basic', serif;
   margin: 0.5rem 0 1rem
@@ -28,9 +31,13 @@ body {
   background-color: var(--dark-gray);
   color: white;
 }
+
+/* Override display when you want to hide something */
 .hidden {
   display: none !important;
 }
+
+/* Bar at the top that keeps track of points */
 #scoreboard {
   width: 95vw;
   display: flex;
@@ -42,6 +49,8 @@ body {
   justify-content: center;
   flex: 1;
 }
+
+/* Used for answer choices and high scores */
 .label {
   position: relative;
   border-radius: 3px;
@@ -60,6 +69,7 @@ body {
   left: 8px;
 }
 
+/* The absolutely positioned point/time updates */
 .update {
   position: absolute;
   padding: 4px;
@@ -83,10 +93,7 @@ body {
   box-shadow: 0 0 8px white;
 }
 
-#StartBtn {
-  display: block;
-  margin: auto;
-}
+/* Distinct sections */
 #PlayPrompt {
   font-size: 1.2em;
   max-width: min(650px, 95%);
@@ -124,6 +131,8 @@ body {
 .highscores {
   cursor: pointer;
 }
+
+/* Question styling */
 .question {
   font-size: 20px;
   display: flex;
@@ -154,6 +163,7 @@ body {
   transition: 400ms
 }
 
+/* Shows question `code` in gradient background box */
 pre.snippet {
   position: relative;
   font-family: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
@@ -177,9 +187,10 @@ section h3 {
   border-bottom: 2px solid white;
 }
 
-.choices, .rules,.scores {
+ul.choices, ul.rules, ul.scores {
   padding: 0.5rem 0;
 }
+/* Applies actual list styling, overriding reset.css  */
 .rules {
   margin-left: 1rem;
   list-style: disc;
@@ -193,6 +204,7 @@ section h3 {
   padding: 0.5rem 0
 }
 
+/* Styles additional info when an incorrect answer is clicked */
 .answer {
   text-align: left;
   margin: 0.5rem 0;
@@ -212,6 +224,8 @@ section h3 {
   display: block;
   margin: 5px auto;
 }
+
+/* These `li`s contain `label`s and `span`s */
 .choices li, .scores li {
   display: flex;
   box-sizing: border-box;
@@ -220,6 +234,9 @@ section h3 {
   border-radius: 5px;
   margin-bottom: 5px;
   transition: 400ms;
+}
+.choices li {
+  cursor: pointer;
 }
 .scores li {
   align-content: flex-end;
@@ -261,6 +278,7 @@ section h3 {
   display: inline-block;
 }
 
+/* Shows `code` within answer choices with a different bg-color */
 code.backtick {
   padding: 2px 5px;
   font-family: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
@@ -290,4 +308,8 @@ button {
 }
 button:hover {
   box-shadow: inset 0px 0px 8px var(--blue-dark), 0 0 8px var(--blue-dark);
+}
+
+footer {
+  text-align: center;
 }

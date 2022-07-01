@@ -21,6 +21,7 @@
       <h1>Javascript Quiz!</h1>
     </header>
     <main class="content">
+      <!-- Top info bar that keeps score -->
       <div id="scoreboard">
         <div class="highscores">See High Scores</div>
         <div class="tracker">
@@ -31,7 +32,8 @@
         <div class="label timer">Time Remaining<span>0</span></div>
         <div class="label points">Points<span>0</span></div>
       </div>
-      <div id="HighScores">
+      <!-- Component that shows high scores after the game or on request -->
+      <section id="HighScores">
         <h2>High Scores</h2>
         <form>
           <h3>You placed in the top 10!</h3>
@@ -40,8 +42,9 @@
         </form>
         <ul class="scores"></ul>
         <button class="playGame" type="button">Play the Game</button>
-      </div>
-      <div id="PlayPrompt">
+      </section>
+      <!-- Component that shows the rules and asks user to continue -->
+      <section id="PlayPrompt">
         <h2>Do you want to play?</h2>
         <section>
           <h3>Rules</h3>
@@ -64,7 +67,8 @@
           </ul>
         </section>
         <button class="playGame">Let's Play!</button>
-      </div>
+      </section>
+      <!-- The actual game -->
       <form id="Game" method="POST">
         <div class="question">
           <div class="card">
@@ -87,7 +91,7 @@
         </div>
       </form>
     </main>
-    <footer></footer>
+    <footer>David Taylor, 2022</footer>
     <script src="./assets/index.js"></script>
   </body>
 </html>
