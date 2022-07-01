@@ -16,10 +16,14 @@ h4 { font-size: 1.5em;}
 h5 { font-size: 1.25em;} 
 header h1 {text-align: center;}
 h1,h2,h3,h4,h5 {
+  font-family: 'Gentium Book Basic', serif;
   margin: 0.5rem 0 1rem
 }
+h1 {
+  font-family: 'Ubuntu', sans-serif;
+}
 body {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Didact Gothic', sans-serif;
   font-size: 14px;
   background-color: var(--dark-gray);
   color: white;
@@ -50,13 +54,13 @@ body {
 .label span {
   position: relative;
   display: inline;
-  padding: 3px 8px;
+  padding: 2px 8px;
   border-radius: 0 3px 3px 0;
   background-color: var(--gray);
   left: 8px;
 }
 
-.label.points .update {
+.update {
   position: absolute;
   padding: 4px;
   border-radius: 3px;
@@ -97,6 +101,28 @@ body {
   max-width: 95%;
   max-width: 95%;
   margin: 1rem auto;
+}
+#HighScores {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+#HighScores form {
+  display: none;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+#HighScores input {
+  border-radius: 5px;
+  padding: 0.5rem 1rem
+}
+#HighScores button {
+  font-size: 1.2em;
+  margin-top: 0.5rem;
+}
+.highscores {
+  cursor: pointer;
 }
 .question {
   font-size: 20px;
@@ -151,7 +177,7 @@ section h3 {
   border-bottom: 2px solid white;
 }
 
-.choices, .rules {
+.choices, .rules,.scores {
   padding: 0.5rem 0;
 }
 .rules {
@@ -166,15 +192,7 @@ section h3 {
 .tips li {
   padding: 0.5rem 0
 }
-.choices li {
-  display: flex;
-  box-sizing: border-box;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  margin-bottom: 5px;
-  transition: 400ms;
-}
+
 .answer {
   text-align: left;
   margin: 0.5rem 0;
@@ -194,19 +212,31 @@ section h3 {
   display: block;
   margin: 5px auto;
 }
-.choices li > * {
+.choices li, .scores li {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  transition: 400ms;
+}
+.scores li {
+  align-content: flex-end;
+}
+.choices li > *, .scores li > * {
   display: inline-block;
 }
-.choices li:last-child {
+.choices li:last-child, .scores li:last-child {
   margin-bottom: 0
 }
 .choices li:hover {
   background-color: var(--gray);
 }
-.choices li.active {
+.choices li.active, .scores li.active {
   box-shadow: inset 0px 0px 8px var(--pink), 0 0 15px var(--pink);
 }
-.choices li label, .answer label {
+.choices li label, .answer label, .scores label {
   display: inline-block;
   padding: 3px;
   border-right: 2px solid var(--blue);
@@ -215,25 +245,34 @@ section h3 {
   min-width: 2rem;
   text-align: right;
 }
-code.backtick  {
-  padding: 2px 5px;
-  font-family: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
-      'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
-  display: inline-block;
-  border-radius: 3px;
-  margin: 1px 0;
-  background-color: rgba(250,250,250,0.05);
-}
-.backtick + .backtick {
-  margin-left: 3px;
-}
 .choices li span {
   padding: 3px;
   width: max-content;
   flex: 1;
 }
-.choices li span > * {
+.scores label {
+  flex: 1
+}
+.scores li span {
+  padding: 3px;
+  width: 2rem;
+}
+.choices li span > *, .scores li span > * {
   display: inline-block;
+}
+
+code.backtick {
+  padding: 2px 5px;
+  font-family: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
+    'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
+  display: inline-block;
+  border-radius: 3px;
+  margin: 1px 0;
+  background-color: rgba(250, 250, 250, 0.05);
+}
+
+.backtick+.backtick {
+  margin-left: 3px;
 }
 .buttons {
   text-align: center;

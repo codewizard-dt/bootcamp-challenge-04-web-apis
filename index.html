@@ -6,6 +6,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Gentium+Book+Basic:ital@1&family=Ubuntu:wght@500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/reset.css" />
     <link rel="stylesheet" href="./assets/style.css" />
     <title>Javascript Quiz</title>
@@ -16,7 +22,7 @@
     </header>
     <main class="content">
       <div id="scoreboard">
-        <div class="highscores">Scoreboard</div>
+        <div class="highscores">See High Scores</div>
         <div class="tracker">
           <div class="label correctGuesses">Correct<span>0</span></div>
           <div class="label incorrectGuesses">Incorrect<span>0</span></div>
@@ -27,7 +33,13 @@
       </div>
       <div id="HighScores">
         <h2>High Scores</h2>
+        <form>
+          <h3>You placed in the top 10!</h3>
+          <input type="text" placeholder="Your Name Here" />
+          <div><button>submit</button></div>
+        </form>
         <ul class="scores"></ul>
+        <button class="playGame" type="button">Play the Game</button>
       </div>
       <div id="PlayPrompt">
         <h2>Do you want to play?</h2>
@@ -51,12 +63,11 @@
             </li>
           </ul>
         </section>
-        <button id="StartBtn">Let's Play!</button>
+        <button class="playGame">Let's Play!</button>
       </div>
       <form id="Game" method="POST">
         <div class="question">
           <div class="card">
-            <div class="success">Correct!</div>
             <div class="text"></div>
             <pre class="snippet"></pre>
             <ul class="choices">
